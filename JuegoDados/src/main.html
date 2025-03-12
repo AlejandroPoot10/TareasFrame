@@ -1,13 +1,37 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
-    <meta charset='utf-8'>
-    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-    <title>Page Title</title>
-    <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <script type="module" src='../dist/Principal.js'></script>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Juego de Dados</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script type="module" src="../dist/Principal.js"></script>
+    
 </head>
 <body>
-    hola
+    <h1>Juego de Dados</h1>
+    <label for="jugador1">Nombre del Jugador 1:</label>
+    <input type="text" id="jugador1" placeholder="Ingrese el nombre del Jugador 1" required>
+    
+    <label for="jugador2">Nombre del Jugador 2:</label>
+    <input type="text" id="jugador2" placeholder="Ingrese el nombre del Jugador 2" required>
+    
+    <button id="iniciarJuego">Iniciar Juego</button>
+    
+    <div id="resultado"></div>
+
+    <script>
+        document.getElementById('iniciarJuego').addEventListener('click', () => {
+            const nombre1 = document.getElementById('jugador1').value;
+            const nombre2 = document.getElementById('jugador2').value;
+
+            if (nombre1 && nombre2) {
+                const resultado = iniciarJuego(nombre1, nombre2, 3); // Puedes cambiar 3 por cualquier cantidad de jugadas
+                document.getElementById('resultado').innerText = resultado;
+            } else {
+                alert("Por favor, complete ambos nombres.");
+            }
+        });
+    </script>
 </body>
 </html>
